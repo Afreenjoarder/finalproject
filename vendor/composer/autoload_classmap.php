@@ -6,12 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'CatagoriesTableSeeder' => $baseDir . '/database/migrations/seeds/CatagoriesTableSeeder.php',
-    'CreateCandidatesTable' => $baseDir . '/database/migrations/2015_03_07_100547_create_candidates_table.php',
+    'CandidatesTableSeeder' => $baseDir . '/database/migrations/seeds/CandidatesTableSeeder.php',
+    'CreateCandidatesTable' => $baseDir . '/database/migrations/2015_03_07_163019_create_candidates_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
-    'CreateVotersAndCandidatesTables' => $baseDir . '/database/migrations/2015_03_07_095150_create_voters_and_candidates_tables.php',
-    'CreateVotersTable' => $baseDir . '/database/migrations/2015_03_07_100536_create_voters_table.php',
+    'CreateVotersAndCandidatesTables' => $baseDir . '/database/migrations/2015_03_07_161956_create_voters_and_candidates_tables.php',
+    'CreateVotersTable' => $baseDir . '/database/migrations/2015_03_07_163008_create_voters_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/File/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/File/Iterator/Facade.php',
@@ -426,7 +426,9 @@ return array(
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
-    'TasksTableSeeder' => $baseDir . '/database/migrations/seeds/TasksTableSeeder.php',
+    'TaskscatagoriesTableSeeder' => $baseDir . '/database/migrations/seeds/TaskscatagoriesTableSeeder.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/Text/Template.php',
+    'VotersTableSeeder' => $baseDir . '/database/migrations/seeds/VotersTableSeeder.php',
+    'VotesTableSeeder' => $baseDir . '/database/migrations/seeds/VotesTableSeeder.php',
 );

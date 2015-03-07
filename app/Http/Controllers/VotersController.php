@@ -1,7 +1,11 @@
 <?php namespace App\Http\Controllers;
+use Input;
+use Redirect;
+use App\Voter;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+//use App\Http\Requests\StoreVoterRequest;
 
 use Illuminate\Http\Request;
 
@@ -13,8 +17,12 @@ class VotersController extends Controller {
 	 * @return Response
 	 */
 	public function index()
+
 	{
-        return view('voters.index');
+		$voters = Voter::all();
+
+		return view('voters.index', compact('voters'));
+
 	}
 
 	/**
@@ -24,7 +32,7 @@ class VotersController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('voters.create');
 	}
 
 	/**
@@ -33,8 +41,13 @@ class VotersController extends Controller {
 	 * @return Response
 	 */
 	public function store()
+
 	{
-		//
+		//$this->validate($request, $this->rules);
+		$input = Input::all();
+		Voter::create( $input );
+
+		return Redirect::route('voters.index')->with('message', 'voter created');
 	}
 
 	/**
@@ -43,9 +56,9 @@ class VotersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Voter $voter)
 	{
-		//
+		return view('voters.show', compact('voter'));
 	}
 
 	/**
@@ -54,9 +67,9 @@ class VotersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit(Voter $voter)
 	{
-		//
+		return view('voters.edit', compact('voter'));
 	}
 
 	/**
@@ -65,9 +78,13 @@ class VotersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(Voter $voter )
 	{
-		//
+		//$this->validate($request, $this->rules);
+		$input = array_except(Input::all(), '_method');
+		$voter->update($input);
+
+		return Redirect::route('voters.index', $voter->voter_id)->with('message', 'voter added.');
 	}
 
 	/**
@@ -76,9 +93,11 @@ class VotersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy(Voter $voter)
 	{
-		//
+		$voter->delete();
+
+		return Redirect::route('voters.index')->with('message', 'voter deleted.');
 	}
 
 }
